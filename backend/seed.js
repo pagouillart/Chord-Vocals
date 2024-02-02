@@ -3,16 +3,15 @@
 // Load environment variables from .env file
 require("dotenv").config();
 
-// Import Faker library for generating fake data
-const { faker } = require("@faker-js/faker");
-
 // Import database client
 const database = require("./database/client");
 
 const seed = async () => {
   try {
+    // Begin a transaction
+    await database.query("START TRANSACTION");
+
     // Declare an array to store the query promises
-    // See why here: https://eslint.org/docs/latest/rules/no-await-in-loop
     const queries = [];
 
     /* ************************************************************************* */
@@ -20,28 +19,49 @@ const seed = async () => {
     // Generating Seed Data
 
     // Optional: Truncate tables (remove existing data)
-    await database.query("truncate item");
 
     // Insert fake data into the 'item' table
-    for (let i = 0; i < 10; i += 1) {
-      queries.push(
-        database.query("insert into item(title) values (?)", [
-          faker.lorem.word(),
-        ])
-      );
-    }
+    queries.push(
+      database.query(`
+      INSERT INTO chord (name_chord) VALUES ('C');
+      INSERT INTO chord (name_chord) VALUES ('D');
+      INSERT INTO chord (name_chord) VALUES ('E');
+      INSERT INTO chord (name_chord) VALUES ('G');
+      INSERT INTO chord (name_chord) VALUES ('A');
+      INSERT INTO chord (name_chord) VALUES ('B');
+      INSERT INTO chord (name_chord) VALUES ('Am');
+      INSERT INTO chord (name_chord) VALUES ('Em');
+      INSERT INTO chord (name_chord) VALUES ('Dm');
+      INSERT INTO chord (name_chord) VALUES ('Gm');
+      INSERT INTO chord (name_chord) VALUES ('Bm');
+      INSERT INTO chord (name_chord) VALUES ('C7');
+      INSERT INTO chord (name_chord) VALUES ('D7');
+      INSERT INTO chord (name_chord) VALUES ('E7');
+      INSERT INTO chord (name_chord) VALUES ('G7');
+      INSERT INTO chord (name_chord) VALUES ('A7');
+      
+      INSERT INTO song (title, artist, chord1, chord2, chord3, chord4, chord5) 
+      VALUES ('Wonderwall', 'Oasis', 1, 2, 3, 4, 5);
+      `)
+    );
+
+    // Commit the transaction
+    await database.query("COMMIT");
 
     /* ************************************************************************* */
 
     // Wait for all the insertion queries to complete
     await Promise.all(queries);
 
-    // Close the database connection
-    database.end();
-
     console.info(`${database.databaseName} filled from ${__filename} 🌱`);
   } catch (err) {
+    // Rollback the transaction in case of an error
+    await database.query("ROLLBACK");
+
     console.error("Error filling the database:", err.message);
+  } finally {
+    // Close the database connection
+    database.end();
   }
 };
 
