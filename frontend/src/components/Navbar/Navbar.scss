@@ -11,16 +11,16 @@ nav {
 
 .siteTitle {
   font-family: $font1;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: white;
   width: 20rem;
-  margin-left: 3rem;
+  margin-left: 1.2rem;
   text-decoration: none;
   height: 7.5rem;
-  @media screen and (min-width: 900px) {
+  @media screen and (max-width: 900px) {
+    margin-left: 1.8rem;
   }
 }
-
 .newSongfindASongContainer {
   display: flex;
   justify-content: start;

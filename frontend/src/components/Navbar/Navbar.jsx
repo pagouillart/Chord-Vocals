@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav>
       <Link to="/" className="siteTitle">
-        <h1>Chord Vocals</h1>
+        <h1 className="siteTitle">Chord Vocals</h1>
       </Link>
       <ul className="newSongfindASongContainer">
         <li>

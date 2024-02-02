@@ -2,6 +2,7 @@
 
 This template is designed for Wild Code School Checkpoint 4, which aims to ensure that students can create a full-stack project within two days.
 The standards are :
+
 - Make user stories
 - Make wireframes.
 - Create dynamic user interfaces.
