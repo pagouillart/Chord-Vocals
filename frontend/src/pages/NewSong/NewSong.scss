@@ -1,0 +1,61 @@
+@import "./Variables.scss";
+
+.newSongPage {
+  display: flex;
+  flex-direction: column;
+  font-family: $font2;
+}
+.songInfos {
+  display: flex;
+  flex-direction: column;
+}
+.selectChordsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+}
+
+.infos {
+  padding: 1rem;
+  margin-left: 20%;
+}
+.chords {
+  padding: 0.5rem;
+  margin-left: 20%;
+}
+
+.titleInput {
+  margin-left: 2rem;
+}
+
+option {
+  width: 7rem;
+}
+
+.selectChord {
+  width: 3rem;
+  margin-left: 2rem;
+}
+.postButtonSection {
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.postButton {
+  font-family: $font2;
+  color: whitesmoke;
+  width: 13rem;
+  background: black;
+  border: solid 2px black;
+  padding: 0.375em 1.125em;
+  font-size: 1rem;
+}
+.postButton:hover,
+.postButton:focus {
+  box-shadow: 0 4px 8px hsla(190deg, 15%, 5%, 0.2);
+  transform: translateY(-4px);
+  background: grey;
+}

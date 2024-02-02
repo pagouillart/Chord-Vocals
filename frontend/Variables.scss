@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "yellowtail";
+  src:
+    local("yellowtail"),
+    url(./src/fonts/Yellowtail-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "koulen";
+  src:
+    url("koulen"),
+    url(./src/fonts/Koulen-Regular.ttf) format("truetype");
+}
+$font1: "yellowtail";
+$font2: "koulen";
+$font3: "";
