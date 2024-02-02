@@ -1,7 +1,16 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+This template is designed for Wild Code School Checkpoint 4, which aims to ensure that students can create a full-stack project within two days.
+The standards are :
+- Make user stories
+- Make wireframes.
+- Create dynamic user interfaces.
+- The app is responsive.
+- Make a conceptual data model.
+- Datas are stocked in a database.
+- Develop SQL and NoSQL data access components.
+- Develop server-side components.
+- The project must be available on our personnal Github account.
 
 ## Setup & Use
 
